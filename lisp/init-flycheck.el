@@ -14,14 +14,9 @@
   :diminish flycheck-mode
   :hook (after-init . global-flycheck-mode)
   :config
-  (define-key flycheck-mode-map flycheck-keymap-prefix nil)
-  (setq flycheck-keymap-prefix (kbd "C-x !"))
-  (define-key flycheck-mode-map flycheck-keymap-prefix
-    flycheck-command-map)
-  ;; (defcustom flycheck-keymap-prefix (kbd "C-x !")
-  ;;  (setq flycheck-keymap-prefix (kbd "C-!")
   (setq flycheck-emacs-lisp-load-path 'inherit)
-  (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
+  (define-key flycheck-mode-map flycheck-keymap-prefix nil)
+;;  (setq flycheck-keymap-prefix (kbd "C-x !"))
 
   ;; Only check while saving and opening files
   (setq flycheck-check-syntax-automatically '(save mode-enabled))

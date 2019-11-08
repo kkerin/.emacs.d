@@ -21,40 +21,41 @@
 ;;
 ;; ELPA: refer to https://github.com/melpa/melpa and https://elpa.emacs-china.org/.
 ;;
-(defun set-package-archives (archives)
-  "Set specific package ARCHIVES repository."
-  (interactive
-   (list (intern (completing-read "Choose package archives: "
-                                  '(melpa melpa-mirror emacs-china netease tuna)))))
-
-  (setq package-archives
-        (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
-                            (not (gnutls-available-p))))
-               (proto (if no-ssl "http" "https")))
-          (pcase archives
-            ('melpa
-             `(,(cons "gnu"   (concat proto "://elpa.gnu.org/packages/"))
-               ,(cons "melpa" (concat proto "://melpa.org/packages/"))))
-            ('melpa-mirror
-             `(,(cons "gnu"   (concat proto "://elpa.gnu.org/packages/"))
-               ,(cons "melpa" (concat proto "://www.mirrorservice.org/sites/melpa.org/packages/"))))
-            ('emacs-china
-             `(,(cons "gnu"   (concat proto "://elpa.emacs-china.org/gnu/"))
-               ,(cons "melpa" (concat proto "://elpa.emacs-china.org/melpa/"))))
-            ('netease
-             `(,(cons "gnu"   (concat proto "://mirrors.163.com/elpa/gnu/"))
-               ,(cons "melpa" (concat proto "://mirrors.163.com/elpa/melpa/"))))
-            ('tencent
-             `(,(cons "gnu"   (concat proto "://mirrors.cloud.tencent.com/elpa//gnu/"))
-               ,(cons "melpa" (concat proto "://mirrors.cloud.tencent.com/elpa/melpa/"))))
-            ('tuna
-             `(,(cons "gnu"   (concat proto "://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/"))
-               ,(cons "melpa" (concat proto "://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/"))))
-            (archives
-             (error "Unknown archives: `%s'" archives)))))
-
-  (message "Set package archives to `%s'." archives))
-
+;;(defun set-package-archives (archives)
+;;  "Set specific package ARCHIVES repository."
+;;  (interactive
+;;   (list (intern (completing-read "Choose package archives: "
+;;                                  '(melpa melpa-mirror emacs-china netease tuna)))))
+;;
+;;  (setq package-archives
+;;        (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
+;;                            (not (gnutls-available-p))))
+;;               (proto (if no-ssl "http" "https")))
+;;          (pcase archives
+;;            ('melpa
+;;             `(,(cons "gnu"   (concat proto "://elpa.gnu.org/packages/"))
+;;               ,(cons "melpa" (concat proto "://melpa.org/packages/"))))
+;;            ('melpa-mirror
+;;             `(,(cons "gnu"   (concat proto "://elpa.gnu.org/packages/"))
+;;               ,(cons "melpa" (concat proto "://www.mirrorservice.org/sites/melpa.org/packages/"))))
+;;            ('emacs-china
+;;             `(,(cons "gnu"   (concat proto "://elpa.emacs-china.org/gnu/"))
+;;               ,(cons "melpa" (concat proto "://elpa.emacs-china.org/melpa/"))))
+;;            ('netease
+;;             `(,(cons "gnu"   (concat proto "://mirrors.163.com/elpa/gnu/"))
+;;               ,(cons "melpa" (concat proto "://mirrors.163.com/elpa/melpa/"))))instanceinstance
+;;            ('tencent
+;;             `(,(cons "gnu"   (concat proto "://mirrors.cloud.tencent.com/elpa//gnu/"))
+;;               ,(cons "melpa" (concat proto "://mirrors.cloud.tencent.com/elpa/melpa/"))))
+;;            ('tuna
+;;             `(,(cons "gnu"   (concat proto "://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/"))
+;;               ,(cons "melpa" (concat proto "://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/"))))
+;;            (archives
+;;             (error "Unknown archives: `%s'" archives)))))
+;;
+;;  (message "Set package archives to `%s'." archives))
+(setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
+                         ("melpa" . "http://elpa.emacs-china.org/melpa/")))
 ;; (set-package-archives centaur-package-archives)
 
 ;; Initialize packages

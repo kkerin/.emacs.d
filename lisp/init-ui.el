@@ -20,9 +20,6 @@
 ;;(declare-function centaur-compatible-theme-p 'init-funcs)
 ;;(declare-function centaur-load-theme 'init-funcs)
 
-;; Logo
-;;(setq fancy-splash-image centaur-logo)
-
 ;; Title
 ;;(setq frame-title-format '("Centaur Emacs - %b")
 ;;      icon-title-format frame-title-format)

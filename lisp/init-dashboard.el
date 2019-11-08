@@ -17,7 +17,7 @@
 (use-package dashboard
   :ensure t
   :diminish (page-break-lines-mode)
-;;  :defines persp-special-last-buffer
+  ;;  :defines persp-special-last-buffer
   :functions (all-the-icons-faicon
               all-the-icons-material
               ;;              open-custom-file
@@ -66,8 +66,7 @@
   :hook (dashboard-mode . (lambda () (setq-local frame-title-format "")))
   :init (dashboard-setup-startup-hook)
   :config
-  (setq dashboard-banner-logo-title "Kang Min - Enjoy Writing & Life"
-        dashboard-startup-banner "1.txt"
+  (setq dashboard-startup-banner "1.txt"
         ;;(or centaur-logo 'official)
         dashboard-center-content t
         dashboard-show-shortcuts nil
@@ -84,45 +83,7 @@
                                   (projects  . "file-directory")
                                   (registers . "database")))
 
-  ;;        dashboard-set-footer t
-  ;;        dashboard-footer (format "Powered by Vincent Zhang, %s" (format-time-string "%Y"))
-  ;;        dashboard-footer-icon (cond ((display-graphic-p)
-  ;;                                     (all-the-icons-faicon "heart"
-  ;;                                                           :height 1.1
-  ;;                                                           :v-adjust -0.05
-  ;;                                                           :face 'error))
-  ;;                                    ((char-displayable-p ?🧡) "🧡 ")
-  ;;                                    (t (propertize ">" 'face 'font-lock-doc-face)))
-  ;;
-  ;;        dashboard-set-navigator t
-  ;;        dashboard-navigator-buttons
-  ;;        `(((,(when (display-graphic-p)
-  ;;               (all-the-icons-octicon "mark-github" :height 1.1 :v-adjust 0.0))
-  ;;            "Homepage" "Browse homepage"
-  ;;            (lambda (&rest _) (browse-url centaur-homepage)))
-  ;;           (,(when (display-graphic-p)
-  ;;               (all-the-icons-material "restore" :height 1.35 :v-adjust -0.24))
-  ;;            "Restore" "Restore previous session"
-  ;;            (lambda (&rest _) (restore-session)))
-  ;;           (,(when (display-graphic-p)
-  ;;               (all-the-icons-octicon "tools" :height 1.0 :v-adjust 0.0))
-  ;;            "Settings" "Open custom file"
-  ;;            (lambda (&rest _) (find-file custom-file)))
-  ;;           (,(when (display-graphic-p)
-  ;;               (all-the-icons-material "update" :height 1.35 :v-adjust -0.24))
-  ;;            "Update" "Update Centaur Emacs"
-  ;;            (lambda (&rest _) (centaur-update)))
-  ;;           (,(if (display-graphic-p)
-  ;;                 (all-the-icons-faicon "question" :height 1.2 :v-adjust -0.1)
-  ;;               "?")
-  ;;            "" "Help (?/h)"
-  ;;            (lambda (&rest _) (dashboard-hydra/body))
-  ;;            font-lock-string-face))))
 
-  ;;  (defun my-banner-path (&rest _)
-  ;;    "Return the full path to banner."
-  ;;    (expand-file-name "banner.txt" user-emacs-directory))
-  ;;  (advice-add #'dashboard-get-banner-path :override #'my-banner-path)
 
   (defvar dashboard-recover-layout-p nil
     "Wether recovers the layout.")
@@ -149,18 +110,18 @@
     ;;Jump to the first section
     (goto-char (point-min))
     (dashboard-goto-recent-files))
-;;  (defun restore-session ()
-;;    "Restore last session."
-;;    (interactive)
-;;    (when (bound-and-true-p persp-mode)
-;;      (message "Restoring session...")
-;;      (condition-case-unless-debug err
-;;          (persp-load-state-from-file)
-;;        (error
-;;         (message "Error: Unable to restore last session -- %s" err)))
-;;      (when (persp-get-buffer-or-null persp-special-last-buffer)
-;;        (persp-switch-to-buffer persp-special-last-buffer))
-;;      (message "Done")))
+  ;;  (defun restore-session ()
+  ;;    "Restore last session."
+  ;;    (interactive)
+  ;;    (when (bound-and-true-p persp-mode)
+  ;;      (message "Restoring session...")
+  ;;      (condition-case-unless-debug err
+  ;;          (persp-load-state-from-file)
+  ;;        (error
+  ;;         (message "Error: Unable to restore last session -- %s" err)))
+  ;;      (when (persp-get-buffer-or-null persp-special-last-buffer)
+  ;;        (persp-switch-to-buffer persp-special-last-buffer))
+  ;;      (message "Done")))
 
   (defun quit-dashboard ()
     "Quit dashboard window."

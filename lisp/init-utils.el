@@ -112,27 +112,6 @@
   :bind (("C-h M-m" . discover-my-major)
          ("C-h M-M" . discover-my-mode)))
 
-;; A Simmple and cool pomodoro timer
-(use-package pomidor
-  :bind ("<f12>" . pomidor)
-  :init
-  (setq alert-default-style 'mode-line)
-  (when sys/macp
-    (setq pomidor-play-sound-file
-          (lambda (file)
-            (start-process "pomidor-play-sound"
-                           nil
-                           "afplay"
-                           file))))
-  :config
-  (setq alert-severity-colors
-        `((urgent   . ,(face-foreground 'error))
-          (high     . ,(face-foreground 'all-the-icons-orange))
-          (moderate . ,(face-foreground 'warning))
-          (normal   . ,(face-foreground 'success))
-          (low      . ,(face-foreground 'all-the-icons-blue))
-          (trivial  . ,(face-foreground 'all-the-icons-purple)))))
-
 ;; Persistent the scratch buffer
 (use-package persistent-scratch
   :preface

@@ -11,31 +11,13 @@
   (require 'init-const))
 ;;  (require 'init-custom))
 
+(global-unset-key (kbd "S-c"))
+(global-set-key (kbd "S-c") 'ignore/nil)
+
 ;; Personal information
 ;; (setq user-full-name centaur-full-name)
 ;; (setq user-mail-address centaur-mail-address)
 
-;; Key Modifiers
-;;(with-no-warnings
-;;  (cond
-;;   (sys/win32p
-;;    ;; make PC keyboard's Win key or other to type Super or Hyper
-;;    ;; (setq w32-pass-lwindow-to-system nil)
-;;    (setq w32-lwindow-modifier 'super     ; Left Windows key
-;;          w32-apps-modifier 'hyper)       ; Menu/App key
-;;    (w32-register-hot-key [s-t]))
-;;   ((and sys/macp (eq window-system 'mac))
-;;    ;; Compatible with Emacs Mac port
-;;    (setq mac-option-modifier 'meta
-;;          mac-command-modifier 'super)
-;;    (bind-keys ([(super a)] . mark-whole-buffer)
-;;               ([(super c)] . kill-ring-save)
-;;               ([(super l)] . goto-line)
-;;               ([(super q)] . save-buffers-kill-emacs)
-;;               ([(super s)] . save-buffer)
-;;               ([(super v)] . yank)
-;;               ([(super w)] . delete-frame)
-;;               ([(super z)] . undo)))))
 
 ;; Environment
 (when sys/linux-x-p
@@ -117,15 +99,6 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq visible-bell t
       inhibit-compacting-font-caches t) ; Don’t compact font caches during GC.
-
-;; Fullscreen
-;; WORKAROUND: To address blank screen issue with child-frame in fullscreen
-;;(when (and sys/mac-x-p emacs/>=26p)
-;;  (setq ns-use-native-fullscreen nil))
-;;(bind-keys ("C-<f11>" . toggle-frame-fullscreen)
-;;           ("C-s-f" . toggle-frame-fullscreen) ; Compatible with macOS
-;;           ("S-s-<return>" . toggle-frame-fullscreen)
-;;           ("M-S-<return>" . toggle-frame-fullscreen))
 
 (provide 'init-base)
 
