@@ -11,11 +11,6 @@
   (require 'init-const))
 ;;  (require 'init-custom))
 
-;;(use-package awesome-tab
-;;  :load-path "~/.emacs.d/lisp/init-awesome-tab.el"
-;;  :config
-;;  (awesome-tab-mode t)
-;;  )
 ;; Suppress warnings in hydra
 ;;(declare-function centaur-compatible-theme-p 'init-funcs)
 ;;(declare-function centaur-load-theme 'init-funcs)
@@ -23,7 +18,8 @@
 ;; Title
 ;;(setq frame-title-format '("Centaur Emacs - %b")
 ;;      icon-title-format frame-title-format)
-(load-theme 'doom-snazzy t)
+;;(load-theme 'doom-gruvbox t)
+(load-theme 'doom-one-light t)
 (when sys/mac-x-p
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
   (add-to-list 'default-frame-alist '(ns-appearance . dark))

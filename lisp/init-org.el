@@ -94,10 +94,10 @@
   (setq org-capture-templates nil)
   (add-to-list 'org-capture-templates '("i" "Inbox"))
   (add-to-list 'org-capture-templates
-               '("ii" "Inbox" entry (file "~/Nutstore/org/abc/inbox.org" "Task")
+               '("ii" "Inbox" entry (file+headline "~/Nutstore/org/abc/inbox.org" "Task")
                  "* %U - %^{heading} %^g\n %?\n"))
   (add-to-list 'org-capture-templates
-               '("il" "Link" entry (file "~/Nutstore/org/abc/inbox.org")
+               '("il" "Link" entry (file+headline "~/Nutstore/org/abc/inbox.org" "Link")
                  "* TODO %(org-cliplink-capture)" :immediate-finish t))
   (add-to-list 'org-capture-templates
                '("r" "Reading" entry

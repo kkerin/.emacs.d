@@ -31,7 +31,11 @@
 ;; Start server
 (use-package server
   :ensure nil
-  :hook (after-init . server-mode))
+  :defer t
+  :hook (after-init . server-mode)
+  :config
+  (autoload 'server-running-p "server")
+  (unless (server-running-p) (server-start)))
 
 ;; History
 (use-package saveplace

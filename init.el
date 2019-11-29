@@ -64,11 +64,12 @@
 
 ;; Constants
 (require 'init-const)
+(require 'init-site-lisp)
 
 ;; Customization
 (require 'init-custom)
-;(require 'snails)
-;(require 'awesome-tab)
+(require 'snails)
+;;(require 'init-awesome-tab)
 
 ;; Packages
 ;; Without this comment Emacs25 adds (package-initialize) here
@@ -101,6 +102,7 @@
 (require 'init-markdown)
 (require 'init-org)
 (require 'init-elfeed)
+(require 'init-pdf-tools)
 
 (require 'init-utils)
 

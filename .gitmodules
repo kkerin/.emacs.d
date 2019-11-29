@@ -1,3 +1,6 @@
 [submodule "site-lisp/snails"]
 	path = site-lisp/snails
 	url = https://github.com/manateelazycat/snails
+[submodule "site-lisp/fuz.el"]
+	path = site-lisp/fuz.el
+	url = https://github.com/cireu/fuz.el
