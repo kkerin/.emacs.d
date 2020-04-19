@@ -5,6 +5,11 @@
 ;; Customizations.
 
 ;;; Code:
+
+(eval-when-compile
+  (require 'init-const)
+  (require 'init-funcs))
+
 (setq custom-file "~/.emacs.d/lisp/init-custom.el")
 
 ;; Fonts
@@ -12,27 +17,21 @@
 ;; 让 cnfonts 随着 Emacs 自动生效。
 ;;(cnfonts-enable)
 (when (display-graphic-p)
-  ;; Set default font
-  (catch 'loop
-    (dolist (font '("SF Mono" "Hack" "Source Code Pro" "Fira Code"
-                    "Menlo" "Monaco" "DejaVu Sans Mono" "Consolas"))
-      (when (member font (font-family-list))
-        (set-face-attribute 'default nil :font font :height 100))
-      (throw 'loop t))))
+  ;;Set default font
+  (cl-loop for font in '("Monaco" "Inconsolata" "Menlo" "SF Mono" "Hack" "Source Code Pro"
+                         "Fira Code" "DejaVu Sans Mono" "Consolas")
+           when (font-installed-p font)
+           return (set-face-attribute 'default nil :font font :height 120))
 
-;; Specify font for all unicode characters
-(catch 'loop
-  (dolist (font '("Symbola" "Apple Symbols" "Symbol"))
-    (when (member font (font-family-list))
-      (set-fontset-font t 'unicode font nil 'prepend)
-      (throw 'loop t))))
+  ;; Specify font for all unicode characters
+  (cl-loop for font in '("Symbola" "Apple Symbols" "Symbol")
+           when (font-installed-p font)
+           return (set-fontset-font t 'unicode font nil 'prepend))
 
-;; Specify font for Chinese characters
-(catch 'loop
-  (dolist (font '("wqy-microhei" "Microsoft Yahei"))
-    (when (member font (font-family-list))
-      (set-fontset-font t '(#x4e00 . #x9fff) font)
-      (throw 'loop t))))
+  ;; Specify font for Chinese characters
+  (cl-loop for font in '("SimHei" "Sarasa-gothic" "wqy-microhei" "Microsoft Yahei")
+           when (font-installed-p font)
+           return (set-fontset-font t '(#x4e00 . #x9fff) font)))
 
 ;; Mail
 ;; (setq message-send-mail-function 'smtpmail-send-it
@@ -49,34 +48,7 @@
       'wl-draft-kill
       'mail-send-hook))
 
-
-
-;;; Code:
-
-(eval-when-compile
-  (require 'init-const))
-
-;;(require 'snails)
-
-;;(use-package snails
-;;  :ensure nil
-;;  :hook (after-init .)
-;;  :bind (("<f4>" . snails)))
-
-  ;;(defcustom centaur-chinese-calendar t
-  ;;  "Use Chinese calendar or not."
-  ;;  :type 'boolean)
-  ;;
-  ;;(defcustom centaur-benchmark nil
-  ;;  "Enable the init benchmark or not."
-  ;;  :type 'boolean)
-  ;;
-  ;; Load `custom-file'
-  ;; If it doesn't exist, copy from the template, then load it.
-  ;;(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-
-
-  (provide 'init-custom)
+(provide 'init-custom)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -85,8 +57,9 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("10461a3c8ca61c52dfbbdedd974319b7f7fd720b091996481c8fb1dded6c6116" "ab9456aaeab81ba46a815c00930345ada223e1e7c7ab839659b382b52437b9ea" default)))
- '(org-pomodoro-format "%s" t))
+    ("15ba8081651869ec689c9004288bed79003de5b4ee9c51a9d4a208d9e3439706" "5c9a906b076fe3e829d030a404066d7949e2c6c89fc4a9b7f48c054333519ee7" "4a9f595fbffd36fe51d5dd3475860ae8c17447272cf35eb31a00f9595c706050" "10461a3c8ca61c52dfbbdedd974319b7f7fd720b091996481c8fb1dded6c6116" "ab9456aaeab81ba46a815c00930345ada223e1e7c7ab839659b382b52437b9ea" default)))
+ '(org-pomodoro-format "%s" t)
+ '(paradox-github-token t))
 
 
 (custom-set-faces

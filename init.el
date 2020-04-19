@@ -68,8 +68,6 @@
 
 ;; Customization
 (require 'init-custom)
-(require 'snails)
-;;(require 'init-awesome-tab)
 
 ;; Packages
 ;; Without this comment Emacs25 adds (package-initialize) here
@@ -86,7 +84,6 @@
 (require 'init-company)
 (require 'init-yasnippet)
 
-;;(require 'init-calendar)
 (require 'init-dashboard)
 (require 'init-dired)
 (require 'init-highlight)
@@ -111,11 +108,12 @@
 (require 'init-vcs)
 (require 'init-flycheck)
 (require 'init-projectile)
-;;(require 'init-lsp)
+(require 'init-lsp)
 
 (require 'init-emacs-lisp)
 (require 'init-python)
 (require 'init-prog)
+(require 'init-sql)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init.el ends here

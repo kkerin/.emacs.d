@@ -11,6 +11,11 @@
   (require 'init-const))
 ;;  (require 'init-custom))
 
+;; Font
+(defun font-installed-p (font-name)
+  "Check if font with FONT-NAME is available."
+  (find-font (font-spec :name font-name)))
+
 ;; Dos2Unix/Unix2Dos
 (defun dos2unix ()
   "Convert the current buffer to UNIX file format."
@@ -34,7 +39,7 @@
         (fancy-widen))
     (revert-buffer t t)
     (message "Reverted this buffer.")))
-(bind-key "s-r" #'revert-this-buffer)
+;;(bind-key "s-r" #'revert-this-buffer)
 
 ;; Sudo edit
 (defun sudo-edit-current-file ()
@@ -56,7 +61,7 @@
   "Reload Emacs configurations."
   (interactive)
   (load-file user-init-file))
-(bind-key "C-c C-l" #'reload-init-file)
+;;(bind-key "C-c C-l" #'reload-init-file)
 
 ;; Browse the homepage
 ;;(defun browse-homepage ()

@@ -166,7 +166,7 @@ T - tag prefix
                 (t ""))))
       (setq dired-guess-shell-alist-user
             `(("\\.pdf\\'" ,cmd)
-              ("\\.docx\\'" ,cmd)
+              ("\\.docx\\|doc\\'" ,cmd)
               ("\\.\\(?:djvu\\|eps\\)\\'" ,cmd)
               ("\\.\\(?:jpg\\|jpeg\\|png\\|gif\\|xpm\\)\\'" ,cmd)
               ("\\.\\(?:xcf\\)\\'" ,cmd)
